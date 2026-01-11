@@ -219,17 +219,6 @@ If you use this work, please cite:
 - **Ahmet Selim ÖZEL** - Istanbul Technical University, Dept. of AI and Data Engineering
   - Email: ozelah23@itu.edu.tr
 
-## 📄 License
-
-[Specify your license here - e.g., MIT License, Apache 2.0, etc.]
-
-## 🙏 Acknowledgments
-
-- OpenMIC 2018 dataset creators
-- NSynth dataset (Magenta team)
-- IRMAS dataset contributors
-- PaSST model authors
-- Istanbul Technical University
 
 ## 📚 References
 
