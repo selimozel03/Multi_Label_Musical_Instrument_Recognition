@@ -43,10 +43,7 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 │       ├── dataset_generation.py   # Synthetic data generation script
 │       ├── merge_datasets.ipynb     # Dataset merging utilities
 │       └── 10_sec_audio_clips.ipynb # Audio preprocessing
-├── plots/                           # Visualization figures
-│   ├── f1_comparison_scatter.png    # F1 score comparison plot
-│   ├── per_class_f1_improvement.png # Per-class improvement visualization
-│   └── realworld_testing_summary.png # Real-world testing results
+|
 ├── reports/                         # Detailed training reports
 │   ├── PaSST_Training_Report.pdf
 │   ├── PaSST_Training_Report_OpenMIC_Only.pdf
