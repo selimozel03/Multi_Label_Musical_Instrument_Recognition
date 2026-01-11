@@ -44,13 +44,7 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 │       ├── merge_datasets.ipynb     # Dataset merging utilities
 │       └── 10_sec_audio_clips.ipynb # Audio preprocessing
 |
-├── reports/                         # Detailed training reports
-│   ├── PaSST_Training_Report.pdf
-│   ├── PaSST_Training_Report_OpenMIC_Only.pdf
-│   ├── MSCRNN_Training_Report.pdf
-│   └── ...
 ├── Report.pdf                       # Main project report (IEEE format)
-├── report.tex                       # LaTeX source for the report
 └── README.md                        # This file
 ```
 
