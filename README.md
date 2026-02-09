@@ -1,10 +1,24 @@
 # Multi-Label Musical Instrument Recognition Using Real and Synthetic Audio Data
 
-This project implements multi-label musical instrument recognition using deep learning models trained on a combination of real-world (OpenMIC 2018) and synthetically generated audio data. We evaluate three diverse architectures: **PaSST** (Transformer), **CBAM-CNN** (Convolutional Neural Network with Channel and Spatial Attention), and **MS-CRNN** (Multi-Scale Convolutional Recurrent Neural Network).
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)](https://pytorch.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> **📄 Read the paper (recommended):** [`paper.pdf`](paper.pdf)  
+
+This project implements multi-label musical instrument recognition using deep learning models trained on a combination of real-world (OpenMIC 2018) and synthetically generated audio data. We evaluate three diverse architectures: **CBAM-CNN** (Convolutional Neural Network with Channel and Spatial Attention), **MS-CRNN** (Multi-Scale Convolutional Recurrent Neural Network), and **PaSST** (Transformer).
 
 ## 🎯 Overview
 
 Musical instrument recognition in polyphonic audio is a challenging task in music information retrieval (MIR). Unlike single-label classification, real-world audio often contains multiple instruments playing simultaneously, requiring models to predict multiple binary outputs for each instrument class. This work addresses the scarcity of large-scale, accurately labeled polyphonic datasets by generating synthetic polyphonic audio mixtures from isolated instrument recordings.
+
+## ✨ Key Features
+
+- **Three diverse model architectures**: PaSST (Transformer), CBAM-CNN, and MS-CRNN
+- **Synthetic data generation**: Creates polyphonic audio mixtures with controlled complexity
+- **Transfer learning**: Pretraining on IRMAS dataset for improved performance
+- **Ensemble methods**: Combines predictions from multiple models for robustness
+- **Real-world evaluation**: Tested on actual audio examples from various sources
 
 ## 📊 Key Results
 
@@ -23,6 +37,16 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 - **Ensemble methods** combining all three models further improve robustness
 - **Real-world testing** demonstrates practical applicability with strong performance on some instrument combinations (e.g., violin detection at 98.6%)
 
+**Per-class F1 impact of synthetic augmentation (Synth − OpenMIC):**
+
+![Per-class F1 improvement from synthetic data](assets/per-class_improvement_from_synthetic_data.png)
+
+## 🖼️ Qualitative Example (Real-World Audio)
+
+Below is an example output from **PaSST** on a real-world clip (`notebooks/evaluation/test_passt_real_audio_violin_cello_piano.ipynb`).
+
+![PaSST real-world test result (violin / cello / piano)](assets/passt_realworld_violin_cello_piano.png)
+
 ## 📁 Repository Structure
 
 ```
@@ -34,17 +58,17 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 │   │   ├── training_ms_crnn.ipynb   # MS-CRNN training
 │   │   └── ensembling.ipynb         # Ensemble model evaluation
 │   ├── pre-training/                # Pretraining notebooks
-│   │   ├── pretraining_cbam.ipynb  # CBAM-CNN pretraining on IRMAS
-│   │   └── pretrainin_multiscale_crnn.ipynb  # MS-CRNN pretraining on IRMAS
-│   ├── real_world_example_evaluation/  # Real-world audio testing
+│   │   ├── pretraining_cbam.ipynb   # CBAM-CNN pretraining on IRMAS
+│   │   └── pretraining_multiscale_crnn.ipynb  # MS-CRNN pretraining on IRMAS
+│   ├── evaluation/                  # Real-world audio testing
 │   │   └── test_passt_real_audio_*.ipynb  # Testing on YouTube audio examples
-│   ├── tests/                       # Additional test notebooks
-│   └── others/                      # Utility scripts
-│       ├── dataset_generation.py   # Synthetic data generation script
+│   └── other/                       # Utility scripts
+│       ├── dataset_generation.py    # Synthetic data generation script
 │       ├── merge_datasets.ipynb     # Dataset merging utilities
 │       └── 10_sec_audio_clips.ipynb # Audio preprocessing
-|
-├── Report.pdf                       # Main project report (IEEE format)
+├── paper.pdf                        # Main project paper/report (PDF)
+├── requirements.txt                 # Python dependencies
+├── LICENSE                          # MIT License
 └── README.md                        # This file
 ```
 
@@ -60,8 +84,8 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/selimozel03/[your-repo-name].git
-cd [your-repo-name]
+git clone https://github.com/selimozel03/Multi_Label_Musical_Instrument_Recognition.git
+cd Multi_Label_Musical_Instrument_Recognition
 ```
 
 2. Install required dependencies:
@@ -102,7 +126,7 @@ This project uses three main datasets:
 Generate synthetic polyphonic audio mixtures from NSynth:
 
 ```bash
-python notebooks/others/dataset_generation.py
+python notebooks/other/dataset_generation.py
 ```
 
 This script:
@@ -126,7 +150,7 @@ Open and run the training notebooks in Google Colab:
 
 #### MS-CRNN
 
-1. First pretrain on IRMAS: `notebooks/pre-training/pretrainin_multiscale_crnn.ipynb`
+1. First pretrain on IRMAS: `notebooks/pre-training/pretraining_multiscale_crnn.ipynb`
 2. Then fine-tune on OpenMIC: `notebooks/training/training_ms_crnn.ipynb`
 
 ### 3. Evaluate on Real-World Audio
@@ -134,7 +158,7 @@ Open and run the training notebooks in Google Colab:
 Test the trained models on real-world audio examples:
 
 ```python
-# Open any notebook in notebooks/real_world_example_evaluation/
+# Open any notebook in notebooks/evaluation/
 # Example: test_passt_real_audio_violin_cello_piano.ipynb
 ```
 
@@ -205,7 +229,7 @@ If you use this work, please cite:
 ```bibtex
 @article{iskender2024multilabel,
   title={Multi-Label Musical Instrument Recognition Using Real and Synthetic Audio Data},
-  author={İskender, Şeyma Betül and Özel, Ahmet Selim},
+  author={Özel, Ahmet Selim and İskender, Şeyma Betül},
   journal={[Journal/Conference Name]},
   year={2024}
 }
@@ -213,12 +237,23 @@ If you use this work, please cite:
 
 ## 👥 Authors
 
-- **Şeyma Betül İSKENDER** - Istanbul Technical University, Dept. of AI and Data Engineering
-  - Email: iskenders22@itu.edu.tr
-
 - **Ahmet Selim ÖZEL** - Istanbul Technical University, Dept. of AI and Data Engineering
   - Email: ozelah23@itu.edu.tr
 
+- **Şeyma Betül İSKENDER** - Istanbul Technical University, Dept. of AI and Data Engineering
+  - Email: iskenders22@itu.edu.tr
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- OpenMIC 2018 dataset creators
+- NSynth dataset (Magenta team)
+- IRMAS dataset contributors
+- PaSST model authors
+- Istanbul Technical University
 
 ## 📚 References
 
@@ -236,5 +271,4 @@ If you use this work, please cite:
 
 ---
 
-For detailed methodology and results, please refer to `Report.pdf`.
-
+For detailed methodology and results, please refer to `paper.pdf`.
