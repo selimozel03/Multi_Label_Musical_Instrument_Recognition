@@ -5,9 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **📄 Read the paper (recommended):** [`paper.pdf`](paper.pdf)  
-> If GitHub doesn’t render it inline, use: [`paper.pdf (download)`](paper.pdf?raw=1)
 
-This project implements multi-label musical instrument recognition using deep learning models trained on a combination of real-world (OpenMIC 2018) and synthetically generated audio data. We evaluate three diverse architectures: **PaSST** (Transformer), **CBAM-CNN** (Convolutional Neural Network with Channel and Spatial Attention), and **MS-CRNN** (Multi-Scale Convolutional Recurrent Neural Network).
+This project implements multi-label musical instrument recognition using deep learning models trained on a combination of real-world (OpenMIC 2018) and synthetically generated audio data. We evaluate three diverse architectures: **CBAM-CNN** (Convolutional Neural Network with Channel and Spatial Attention), **MS-CRNN** (Multi-Scale Convolutional Recurrent Neural Network), and **PaSST** (Transformer).
 
 ## 🎯 Overview
 
@@ -37,6 +36,10 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 - **Per-class improvements**: Bass (+46.1%), Flute (+42.5%), Mandolin (+29.3%) show significant gains
 - **Ensemble methods** combining all three models further improve robustness
 - **Real-world testing** demonstrates practical applicability with strong performance on some instrument combinations (e.g., violin detection at 98.6%)
+
+**Per-class F1 impact of synthetic augmentation (Synth − OpenMIC):**
+
+![Per-class F1 improvement from synthetic data](assets/per-class_improvement_from_synthetic_data.png)
 
 ## 🖼️ Qualitative Example (Real-World Audio)
 
