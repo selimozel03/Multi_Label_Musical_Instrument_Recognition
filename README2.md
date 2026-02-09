@@ -1,10 +1,22 @@
 # Multi-Label Musical Instrument Recognition Using Real and Synthetic Audio Data
 
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)](https://pytorch.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This project implements multi-label musical instrument recognition using deep learning models trained on a combination of real-world (OpenMIC 2018) and synthetically generated audio data. We evaluate three diverse architectures: **PaSST** (Transformer), **CBAM-CNN** (Convolutional Neural Network with Channel and Spatial Attention), and **MS-CRNN** (Multi-Scale Convolutional Recurrent Neural Network).
 
 ## 🎯 Overview
 
 Musical instrument recognition in polyphonic audio is a challenging task in music information retrieval (MIR). Unlike single-label classification, real-world audio often contains multiple instruments playing simultaneously, requiring models to predict multiple binary outputs for each instrument class. This work addresses the scarcity of large-scale, accurately labeled polyphonic datasets by generating synthetic polyphonic audio mixtures from isolated instrument recordings.
+
+## ✨ Key Features
+
+- **Three diverse model architectures**: PaSST (Transformer), CBAM-CNN, and MS-CRNN
+- **Synthetic data generation**: Creates polyphonic audio mixtures with controlled complexity
+- **Transfer learning**: Pretraining on IRMAS dataset for improved performance
+- **Ensemble methods**: Combines predictions from multiple models for robustness
+- **Real-world evaluation**: Tested on actual audio examples from various sources
 
 ## 📊 Key Results
 
@@ -34,26 +46,17 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 │   │   ├── training_ms_crnn.ipynb   # MS-CRNN training
 │   │   └── ensembling.ipynb         # Ensemble model evaluation
 │   ├── pre-training/                # Pretraining notebooks
-│   │   ├── pretraining_cbam.ipynb  # CBAM-CNN pretraining on IRMAS
-│   │   └── pretrainin_multiscale_crnn.ipynb  # MS-CRNN pretraining on IRMAS
-│   ├── real_world_example_evaluation/  # Real-world audio testing
+│   │   ├── pretraining_cbam.ipynb   # CBAM-CNN pretraining on IRMAS
+│   │   └── pretraining_multiscale_crnn.ipynb  # MS-CRNN pretraining on IRMAS
+│   ├── evaluation/                  # Real-world audio testing
 │   │   └── test_passt_real_audio_*.ipynb  # Testing on YouTube audio examples
-│   ├── tests/                       # Additional test notebooks
-│   └── others/                      # Utility scripts
-│       ├── dataset_generation.py   # Synthetic data generation script
+│   └── other/                       # Utility scripts
+│       ├── dataset_generation.py    # Synthetic data generation script
 │       ├── merge_datasets.ipynb     # Dataset merging utilities
 │       └── 10_sec_audio_clips.ipynb # Audio preprocessing
-├── plots/                           # Visualization figures
-│   ├── f1_comparison_scatter.png    # F1 score comparison plot
-│   ├── per_class_f1_improvement.png # Per-class improvement visualization
-│   └── realworld_testing_summary.png # Real-world testing results
-├── reports/                         # Detailed training reports
-│   ├── PaSST_Training_Report.pdf
-│   ├── PaSST_Training_Report_OpenMIC_Only.pdf
-│   ├── MSCRNN_Training_Report.pdf
-│   └── ...
 ├── Report.pdf                       # Main project report (IEEE format)
-├── report.tex                       # LaTeX source for the report
+├── requirements.txt                 # Python dependencies
+├── LICENSE                          # MIT License
 └── README.md                        # This file
 ```
 
@@ -69,8 +72,8 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/selimozel03/[your-repo-name].git
-cd [your-repo-name]
+git clone https://github.com/selimozel03/Multi_Label_Musical_Instrument_Recognition.git
+cd Multi_Label_Musical_Instrument_Recognition
 ```
 
 2. Install required dependencies:
@@ -111,7 +114,7 @@ This project uses three main datasets:
 Generate synthetic polyphonic audio mixtures from NSynth:
 
 ```bash
-python notebooks/others/dataset_generation.py
+python notebooks/other/dataset_generation.py
 ```
 
 This script:
@@ -135,7 +138,7 @@ Open and run the training notebooks in Google Colab:
 
 #### MS-CRNN
 
-1. First pretrain on IRMAS: `notebooks/pre-training/pretrainin_multiscale_crnn.ipynb`
+1. First pretrain on IRMAS: `notebooks/pre-training/pretraining_multiscale_crnn.ipynb`
 2. Then fine-tune on OpenMIC: `notebooks/training/training_ms_crnn.ipynb`
 
 ### 3. Evaluate on Real-World Audio
@@ -143,7 +146,7 @@ Open and run the training notebooks in Google Colab:
 Test the trained models on real-world audio examples:
 
 ```python
-# Open any notebook in notebooks/real_world_example_evaluation/
+# Open any notebook in notebooks/evaluation/
 # Example: test_passt_real_audio_violin_cello_piano.ipynb
 ```
 
@@ -230,7 +233,7 @@ If you use this work, please cite:
 
 ## 📄 License
 
-[Specify your license here - e.g., MIT License, Apache 2.0, etc.]
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -257,4 +260,3 @@ If you use this work, please cite:
 ---
 
 For detailed methodology and results, please refer to `Report.pdf`.
-
