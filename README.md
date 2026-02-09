@@ -227,7 +227,7 @@ Combine predictions from all three models:
 If you use this work, please cite:
 
 ```bibtex
-@article{iskender2024multilabel,
+@article{ozel2024multilabel,
   title={Multi-Label Musical Instrument Recognition Using Real and Synthetic Audio Data},
   author={Özel, Ahmet Selim and İskender, Şeyma Betül},
   journal={[Journal/Conference Name]},
