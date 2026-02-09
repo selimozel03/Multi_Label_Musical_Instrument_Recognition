@@ -4,6 +4,9 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+> **📄 Read the paper (recommended):** [`paper.pdf`](paper.pdf)  
+> If GitHub doesn’t render it inline, use: [`paper.pdf (download)`](paper.pdf?raw=1)
+
 This project implements multi-label musical instrument recognition using deep learning models trained on a combination of real-world (OpenMIC 2018) and synthetically generated audio data. We evaluate three diverse architectures: **PaSST** (Transformer), **CBAM-CNN** (Convolutional Neural Network with Channel and Spatial Attention), and **MS-CRNN** (Multi-Scale Convolutional Recurrent Neural Network).
 
 ## 🎯 Overview
@@ -35,6 +38,12 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 - **Ensemble methods** combining all three models further improve robustness
 - **Real-world testing** demonstrates practical applicability with strong performance on some instrument combinations (e.g., violin detection at 98.6%)
 
+## 🖼️ Qualitative Example (Real-World Audio)
+
+Below is an example output from **PaSST** on a real-world clip (`notebooks/evaluation/test_passt_real_audio_violin_cello_piano.ipynb`).
+
+![PaSST real-world test result (violin / cello / piano)](assets/passt_realworld_violin_cello_piano.png)
+
 ## 📁 Repository Structure
 
 ```
@@ -54,7 +63,7 @@ Musical instrument recognition in polyphonic audio is a challenging task in musi
 │       ├── dataset_generation.py    # Synthetic data generation script
 │       ├── merge_datasets.ipynb     # Dataset merging utilities
 │       └── 10_sec_audio_clips.ipynb # Audio preprocessing
-├── Report.pdf                       # Main project report (IEEE format)
+├── paper.pdf                        # Main project paper/report (PDF)
 ├── requirements.txt                 # Python dependencies
 ├── LICENSE                          # MIT License
 └── README.md                        # This file
@@ -217,7 +226,7 @@ If you use this work, please cite:
 ```bibtex
 @article{iskender2024multilabel,
   title={Multi-Label Musical Instrument Recognition Using Real and Synthetic Audio Data},
-  author={İskender, Şeyma Betül and Özel, Ahmet Selim},
+  author={Özel, Ahmet Selim and İskender, Şeyma Betül},
   journal={[Journal/Conference Name]},
   year={2024}
 }
@@ -225,11 +234,11 @@ If you use this work, please cite:
 
 ## 👥 Authors
 
-- **Şeyma Betül İSKENDER** - Istanbul Technical University, Dept. of AI and Data Engineering
-  - Email: iskenders22@itu.edu.tr
-
 - **Ahmet Selim ÖZEL** - Istanbul Technical University, Dept. of AI and Data Engineering
   - Email: ozelah23@itu.edu.tr
+
+- **Şeyma Betül İSKENDER** - Istanbul Technical University, Dept. of AI and Data Engineering
+  - Email: iskenders22@itu.edu.tr
 
 ## 📄 License
 
@@ -259,4 +268,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-For detailed methodology and results, please refer to `Report.pdf`.
+For detailed methodology and results, please refer to `paper.pdf`.
